@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Table design
+## users
 
-Things you may want to cover:
+| Column             | Type       | Options     |
+|:-------------------|:-----------|:------------|
+| nickname           | string     | null: false |
+| email              | string     | null: false |
+| encrypted_password | string     | null: false |
+| birthday           | date       | null: false |
+| favorite_dish      | text       | null: false |
+| profile            | text       |             |
+| image              | string     |             |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_one :seasoning
 
-* Configuration
+## seasonings
 
-* Database creation
+| Column        | Type       | Options                        |
+|:--------------|:-----------|:-------------------------------|
+| user_id       | references | null: false, foreign_key: true |
+| salt_sugar_id | integer    |                                |
+| soy_sauce_id  | integer    |                                |
+| liquor_id     | integer    |                                |
+| miso_id       | integer    |                                |
+| dashi_id      | integer    |                                |
+| oil_id        | integer    |                                |
+| vinegar_id    | integer    |                                |
+| sauce_id      | integer    |                                |
+| western_id    | integer    |                                |
+| chinese_id    | integer    |                                |
+| spice_herb_id | integer    |                                |
+| roux_id       | integer    |                                |
+| dressing_id   | integer    |                                |
+| other_id      | integer    |                                |
 
-* Database initialization
+### Association
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- belongs_to :users
