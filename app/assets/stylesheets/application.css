@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+ /* 全ページ共通部分 */
+ .html {
+   font-size: 100%;
+ }
+ 
