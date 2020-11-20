@@ -1,9 +1,11 @@
-<header class='page-header'>
-  <div class='header-left'>
-    <%= link_to 'uchino_aji', "/", class:"header-logo" %>
+<header class='page-header wrapper'>
+  <div class='header-title'>
+    <%= link_to "uchino_aji", "/", class:'header-logo' %>
   </div>
-  <div class='header-right'>
-    <%= link_to 'user nickname', "#", class:"header-nickname" %>
-    <%= link_to 'user アイコン', "#", class:"header-icon"%>
+  <div class='header-user'>
+    <ul class='header-user-display'>
+      <li><%= link_to "user nickname", "#", class:'header-nickname' %></li>
+      <li><%= link_to "user アイコン", "#", class:'header-icon'%></li>
+    </ul>
   </div>
 </header>
