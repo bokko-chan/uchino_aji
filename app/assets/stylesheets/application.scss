@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+ /* 全ページ共通部分 */
+ html {
+   font-size: 100%;
+ }
+
+ body {
+  font-family: 'Varela Round','YuGothic','Yu Gothic','ヒラギノ角ゴシック','Hiragino\ Sans','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+  // background-color: rgba($color: #fffdf1, $alpha: 1.0);
+  color: #691c0d;
+}
+
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4%; //スマホ向け余白指定
+}
+
+a {
+  text-decoration: none;
+  color: #691c0d;
+}
+
+li {
+  list-style: none;
+}
