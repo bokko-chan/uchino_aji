@@ -9,9 +9,8 @@
 | email              | string     | null: false |
 | encrypted_password | string     | null: false |
 | birthday           | date       | null: false |
-| favorite_dish      | text       | null: false |
+| favorite_dish      | text       |             |
 | profile            | text       |             |
-| image              | string     |             |
 
 ### Association
 
