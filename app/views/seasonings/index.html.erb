@@ -1,9 +1,33 @@
-<div id='home', class='big-bg'> <%#トップページ全画面背景用%>
+<div id='home', class='big-bg'>
   <%= render 'shared/header' %>
 
   <div class='main-content wrapper'>
     <h2 class='main-title'>uchino_aji</h2>
     <p class= 'main-subtitle'>あなたのお家にある調味料から作れるレシピを探してみませんか？</p>
-  </div> <%#main-content閉じタグ%>
+  </div>
+
+  <div class='recipe-contents'>
+    <%= form_with url:rakuten_search_path, method: :get, local: true do |f| %>
+      <%= label_tag :recipe_category, 'キーワード検索', class: 'search-label'%>
+      <%= f.text_field :recipe_category, class: 'serch-form', placeholder: "料理名や材料名を入力" %>
+      <%= submit_tag "検索", class: 'search-submit'%>
+    <% end %>
+
+    <ul class='recipe-lists'>
+      <h3 class='lists-title'>レシピ一覧</h3>
+      <% @recipes.each do |recipe| %>
+        <li class='list'>
+          <div class='recipe-title'>
+            <%= recipe.title %>
+          </div>
+          <%= link_to image_tag(recipe.food_image_url, class: 'recipe-image'), recipe.url %>
+          <p class='recipe-indication'>調理目安</p>
+          <div class='recipe-time'>
+            <%= recipe.indication %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
   
-</div> <%#トップページ全画面背景用閉じタグ%>
+</div>
