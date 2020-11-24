@@ -1,0 +1,15 @@
+footer {
+  display: flex;
+  justify-content: center;
+  line-height: 1.7;
+  background: rgb(249,239,230);
+  background: radial-gradient(circle, rgba(249,239,230,1) 44%, rgba(228,211,193,1) 98%);
+}
+
+.copy-right {
+  margin-right: 20px;
+}
+
+.special-thanks {
+  margin-left: 20px;
+}
