@@ -6,8 +6,8 @@
   <% if user_signed_in? %>
     <div class='header-user'>
       <ul class='header-user-display'>
-        <li><%= link_to "user nickname", "#", class:'header-nickname' %></li>
-        <li><%= link_to "user アイコン", "#", class:'header-icon'%></li>
+        <li><%= link_to current_user.nickname, "#", class:'header-nickname' %></li>
+        <li><%= link_to "😊", "#", class:'header-icon'%></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'header-logout' %></li>
       </ul>
     </div>

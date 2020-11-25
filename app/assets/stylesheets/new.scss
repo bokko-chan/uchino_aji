@@ -1,3 +1,8 @@
+.error-message {
+  color: rgb(224, 57, 23);
+  display: flex;
+}
+
 .form-box {
   display: flex;
   flex-direction: column;
@@ -58,4 +63,8 @@
 
 .link-label {
   color: #f39c12;
+}
+
+.registration-announce {
+  margin: 80px 0 50px 0;
 }
