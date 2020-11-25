@@ -12,16 +12,32 @@
   margin: 0 auto;
 }
 
-.form-label{
+.form-text {
+  display: flex;
+}
+
+.mandatory {
   position: absolute;
   top: 15px;
   left: 10px;
-  font-size: 16px;
+  font-size: 15px;
+  color: rgb(224, 57, 23);
+}
+
+.optional {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 15px;
   color: #a0a0a0;
 }
 
-.indispensable {
-  color: red;
+.form-label{
+  position: absolute;
+  top: 15px;
+  left: 50px;
+  font-size: 16px;
+  color: #a0a0a0;
 }
 
 .form-field {
@@ -37,7 +53,7 @@
 }
 
 .actions {
-  margin: 30px 0 50px;
+  margin: 50px 0 30px;
 }
 
 .link-label {

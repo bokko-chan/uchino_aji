@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_11_18_093825) do
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.date "birthday", null: false
     t.text "favorite_dish"
     t.text "profile"
     t.string "reset_password_token"
