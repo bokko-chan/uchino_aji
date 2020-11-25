@@ -2,10 +2,19 @@
   <div class='header-title'>
     <%= link_to "uchino_aji", "/", class:'header-logo' %>
   </div>
-  <div class='header-user'>
-    <ul class='header-user-display'>
-      <li><%= link_to "user nickname", "#", class:'header-nickname' %></li>
-      <li><%= link_to "user アイコン", "#", class:'header-icon'%></li>
+
+  <% if user_signed_in? %>
+    <div class='header-user'>
+      <ul class='header-user-display'>
+        <li><%= link_to "user nickname", "#", class:'header-nickname' %></li>
+        <li><%= link_to "user アイコン", "#", class:'header-icon'%></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'header-logout' %></li>
+      </ul>
+    </div>
+  <% else %>
+    <ul class='signed-in-up'>
+      <li><%= link_to "ログイン", new_user_session_path, class: 'session-btn' %></li>
+      <li><%= link_to "無料新規登録", new_user_registration_path, class: 'registration-btn' %></li>
     </ul>
-  </div>
+  <% end %>
 </header>
