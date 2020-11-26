@@ -1,0 +1,50 @@
+<div id='home', class='big-bg'>
+
+  <div class='main-content'>
+    <div class='form-box'>
+      <div class='list'>
+        <h3><%= link_to "uchino_aji", "/", class: 'main-subtitle' %></h3><br />
+        <h2>ログイン情報入力</h2>
+
+        <%= form_with model: @user, url: user_session_path, method: :post, local: true do |f| %>
+          <div class='error-message'>
+            <%= flash[:notice] %>
+            <%= flash[:alert] %>
+          </div>
+          
+          <div class="form">
+            <span class='mandatory'>必須</span>
+            <%= f.label "メールアドレス", class: 'form-label' %><br />
+            <%= f.email_field :email, autocomplete: "email", class: 'form-field' %>
+          </div>
+
+          <div class="form">
+            <span class='mandatory'>必須</span>
+            <%= f.label "パスワード (半角英数混合8文字以上)", class: 'form-label' %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-field' %>
+          </div>
+
+          <%# if devise_mapping.rememberable? %>
+            <%# <div class="field"> %>
+              <%#= f.check_box :remember_me %>
+              <%#= f.label :remember_me %>
+            <%# </div> %>
+          <%# end %>
+
+          <div class="actions">
+            <%= f.submit "ログイン", class: 'recipe-detail-btn' %>
+          </div>
+        <% end %>
+
+        <div class='registration-announce'>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <span>または、アカウント</span>
+            <%= link_to "無料新規登録", new_registration_path(resource_name), class: 'link-label' %><br />
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>

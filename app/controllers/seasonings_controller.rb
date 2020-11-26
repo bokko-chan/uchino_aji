@@ -5,4 +5,10 @@ class SeasoningsController < ApplicationController
       @recipes = @categories.first.ranking
   end
 
+  def new
+  end
+
+  def create
+  end
+
 end

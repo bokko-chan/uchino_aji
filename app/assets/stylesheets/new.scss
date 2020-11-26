@@ -1,0 +1,70 @@
+.error-message {
+  color: rgb(224, 57, 23);
+  display: flex;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  justify-content: center;
+  position: relative;
+  width: 500px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.form-text {
+  display: flex;
+}
+
+.mandatory {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 15px;
+  color: rgb(224, 57, 23);
+}
+
+.optional {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-size: 15px;
+  color: #a0a0a0;
+}
+
+.form-label{
+  position: absolute;
+  top: 15px;
+  left: 50px;
+  font-size: 16px;
+  color: #a0a0a0;
+}
+
+.form-field {
+  position: relative;
+  display: block;
+  width: 500px;
+  margin-top: 20px;
+  padding: 15px;
+  border: solid 1px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #a0a0a0;
+}
+
+.actions {
+  margin: 50px 0 30px;
+}
+
+.link-label {
+  color: #f39c12;
+}
+
+.registration-announce {
+  margin: 80px 0 50px 0;
+}

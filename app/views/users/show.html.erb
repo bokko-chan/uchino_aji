@@ -1,0 +1,42 @@
+<div id='home', class='big-bg'>
+  <%= render 'shared/header' %>
+
+  <div class='main-content'>
+    <div class='form-box'>
+      <div class='list'>
+        <h3><%= link_to "uchino_aji", "/", class: 'main-subtitle' %></h3><br />
+        <h2>アカウントページ</h2>
+
+        <div class='user-contents'>
+          <ul class='show'>
+            <li><%= @user.nickname %>さんの登録情報</li>
+            <li><%#= image_tag @user.image, class: 'show-user-icon' %></li>
+            <li><%= @user.favorite_dish %></li>
+            <li><%= @user.profile %></li>
+          </ul>
+        </div>
+
+        <div class='user-seasonings'>
+          <ul class='seasonings'>
+            <li><%#= @seasoning.salt_sugar.name %></li>
+            <li><%#= @seasoning.soy_sauce %></li>
+            <li><%#= @seasoning.liquor.name %></li>
+            <li><%#= @seasoning.miso.name %></li>
+            <li><%#= @seasoning.dashi.name %></li>
+            <li><%#= @seasoning.oil.name %></li>
+            <li><%#= @seasoning.vinegar.name %></li>
+            <li><%#= @seasoning.sauce.name %></li>
+            <li><%#= @seasoning.western.name %></li>
+            <li><%#= @seasoning.chinese.name %></li>
+            <li><%#= @seasoning.spice_herb.name %></li>
+            <li><%#= @seasoning.roux.name %></li>
+            <li><%#= @seasoning.dressing.name %></li>
+            <li><%#= @seasoning.other.name %></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>

@@ -1,0 +1,76 @@
+<div id='home', class='big-bg'>
+
+  <div class='main-content'>
+    <div class='form-box'>
+      <div class='list'>
+        <h3><%= link_to "uchino_aji", "/", class: 'main-subtitle' %></h3><br />
+        <h2>新規ユーザー登録</h2>
+
+        <%= form_with model: @user, url: user_registration_path, method: :post, local: true do |f| %>
+          
+          <div class="form">
+            <span class='mandatory'>必須</span>
+            <%= f.label "ニックネーム", class: 'form-label' %><br />
+            <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'form-field' %>
+            <div class='error-message'>
+              <%= render "shared/error_messages", model: f.object, attribute: :nickname %>
+            </div>
+          </div><br />
+
+          <div class="form">
+            <span class='mandatory'>必須</span>
+            <%= f.label "メールアドレス", class: 'form-label' %><br />
+            <%= f.email_field :email, autocomplete: "email", class: 'form-field' %>
+            <div class='error-message'>
+              <%= render "shared/error_messages", model: f.object, attribute: :email %>
+            </div>
+          </div><br />
+
+          <div class="form">
+              <span class='mandatory'>必須</span>
+              <%= f.label "パスワード (半角英数混合8文字以上)", class: 'form-label' %><br />
+              <%= f.password_field :password, autocomplete: "new-password", class: 'form-field' %>
+            <div class='error-message'>
+              <%= render "shared/error_messages", model: f.object, attribute: :password %>
+            </div>
+          </div><br />
+
+          <div class="form">
+            <span class='mandatory'>必須</span>
+            <%= f.label "パスワード (確認用)", class: 'form-label' %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "password-confirmation", class: 'form-field' %>
+            <div class='error-message'>
+              <%= render "shared/error_messages", model:f.object, attribute: :password_confirmation %>
+            </div>
+          </div><br />
+
+          <div class="form">
+            <span class='optional'>(任意)</span>
+            <%= f.label "好きな料理", class: 'form-label' %><br />
+            <%= f.text_field :favorite_dish, autocomplete: "favorite-dish", class: 'form-field' %>
+          </div>
+
+          <div class="form">
+            <span class='optional'>(任意)</span>
+            <%= f.label "プロフィール", class: 'form-label' %><br />
+            <%= f.text_area :profile, autocomplete: "profile", class: 'form-field' %>
+          </div><br />
+
+          <div class='form'>
+            <span class='optional'>(任意)</span>
+            <%= f.label "アイコン画像", class: 'form-label' %><br />
+            <div class="form-label">
+              <br /><span class='click-upload'>クリックして画像をアップロード</span>
+              <%= f.file_field :image, id:"icon-image" %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "登録 (無料)", class: 'recipe-detail-btn' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'shared/footer' %>

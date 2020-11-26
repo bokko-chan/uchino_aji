@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'seasonings#index'
   get 'rakuten_search' => 'seasonings#index'
   resources :seasonings, only:[:index]
+  resources :users, only:[:show]
 end

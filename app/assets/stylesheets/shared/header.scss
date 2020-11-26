@@ -3,6 +3,8 @@ header {
   padding: 20px;
   display: flex;
   line-height: 1.7;
+  justify-content: space-between;
+
 }
 
 .header-title {
@@ -12,17 +14,16 @@ header {
 
 .header-logo {
   font-size: 20px;
-  // background-color: rgba($color: #ffffff, $alpha: 1.0);
 }
 
-.header-user {
-  width: 50%;
-  padding-right: 20px;
-}
-
-.header-user-display {
-  display: flex;
+.header-user-display .signed-in-up {
   justify-content: flex-end;
-  margin-top: 3px;
 }
 
+ul{
+  display: flex;
+}
+
+li {
+  margin: 5px;
+}
