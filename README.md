@@ -34,7 +34,7 @@
  手軽に人気レシピを見られるようにすることで解決したいということを目指しました。
 
 ## 洗い出した要件
-![Uploading uchino_aji 機能要件定義.png…]()
+<img width="917" alt="uchino_aji 機能要件定義" src="https://user-images.githubusercontent.com/72552210/100367808-1dc18d80-3046-11eb-9ddb-82f99364239e.png">
 
 ## 実装した機能
 - [APIによるレシピ表示機能](https://gyazo.com/7fa961ef0f5a1854e7c8fd833971560a)
@@ -50,7 +50,7 @@
 
 ## データベース設計
 ### ER図
- ![Uploading uchino_aji ER図1.png…]()
+<img width="503" alt="uchino_aji ER図1" src="https://user-images.githubusercontent.com/72552210/100367698-f36fd000-3045-11eb-86a1-0fbf6daed2ec.png">
 
 ### テーブル設計
 #### users
