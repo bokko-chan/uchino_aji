@@ -1,9 +1,9 @@
-# class Dashi < ApplicationRecord
-#   self.data = [
-#     { id: 1, name: '--' },
-#   ]
+class Dashi < ActiveHash::Base
+  self.data = [
+    { id: 1, name: '--' },
+  ]
  
-#    include ActiveHash::Associations
-#    has_many :seasonings
+   include ActiveHash::Associations
+   has_many :seasonings
  
-# end
+end
