@@ -1,4 +1,4 @@
-class Vinegar < ApplicationRecord
+class Vinegar < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

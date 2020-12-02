@@ -1,4 +1,4 @@
-class Roux < ApplicationRecord
+class Roux < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

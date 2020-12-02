@@ -1,4 +1,4 @@
-class Liquor < ApplicationRecord
+class Liquor < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

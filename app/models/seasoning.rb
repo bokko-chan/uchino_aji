@@ -17,7 +17,7 @@ class Seasoning < ApplicationRecord
   belongs_to_active_hash :dressing
   belongs_to_active_hash :other
 
-  validates :salt_sugar_id, :soy_sauce_id, :liquor_id, :miso_id, :dashi_id, :oil_id, :vinegar_id, :sauce_id, :western_id, :chinese_id, :spice_herb_id, :roux_id, :dressing_id, :otehr_id, numericality: { other_than: 1 } 
+  validates :salt_sugar_id,:soy_sauce_id, :liquor_id, :miso_id, :dashi_id, :oil_id, :vinegar_id, :sauce_id, :western_id, :chinese_id, :spice_herb_id, :roux_id, :dressing_id, :otehr_id, numericality: { other_than: 1 } 
 
 end
 

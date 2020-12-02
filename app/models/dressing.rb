@@ -1,4 +1,4 @@
-class Dressing < ApplicationRecord
+class Dressing < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

@@ -1,4 +1,4 @@
-class SpiceHerb < ApplicationRecord
+class SpiceHerb < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

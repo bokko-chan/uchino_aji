@@ -1,4 +1,4 @@
-class Miso < ApplicationRecord
+class Miso < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

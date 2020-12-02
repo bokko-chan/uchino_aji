@@ -1,4 +1,4 @@
-class Western < ApplicationRecord
+class Western < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]

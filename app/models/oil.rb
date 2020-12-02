@@ -1,4 +1,4 @@
-class Oil < ApplicationRecord
+class Oil < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]
