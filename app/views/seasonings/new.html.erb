@@ -12,7 +12,6 @@
           <div class="form">
             <span class='optional'>(任意)</span>
             <%= f.label "塩・砂糖", class: 'form-label' %><br />
-            <%#= f.text_field :favorite_dish, autocomplete: "favorite-dish", class: 'form-field' %>
             <%= f.collection_check_boxes(:salt_sugar_id, SaltSugar.all, :id, :name, {}, {class: 'check_box', id:'salt-sugar'}) %>
           </div>
 

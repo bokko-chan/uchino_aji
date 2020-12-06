@@ -1,4 +1,4 @@
-class Other < ApplicationRecord
+class Other < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
   ]
