@@ -1,6 +1,6 @@
 class SaltSugar < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    # { id: 1, name: '--' },
     { id: 2, name: '塩' },
     { id: 3, name: '岩塩' },
     { id: 4, name: '藻塩' },
@@ -11,6 +11,7 @@ class SaltSugar < ActiveHash::Base
   ]
  
    include ActiveHash::Associations
-   has_many :seasonings
+   has_many :seasonings, through: :seasoning_salt_sugars
+   has_many :seasoning_salt_sugars
  
 end
