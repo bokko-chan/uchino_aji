@@ -12,6 +12,8 @@
         </div><br />
           <% if @user.image.attached? %>
             <%= image_tag @user.image, class: 'user-show-icon' %>
+          <% else %>
+            <%= link_to image_tag('/images/job_chef_man.png', class: 'user-show-icon'), "/users/#{current_user.id}" %>
           <% end %><br />
           <div class='label'>好きな料理</div>
           <%= @user.favorite_dish %>
