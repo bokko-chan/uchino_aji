@@ -4,9 +4,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :favorite_dish, :profile, :image).merge(user_id: current_user.id)
+    params.require(:user).permit(:nickname, :favorite_dish, :profile, :image).merge(user_id: current_user.id)
   end
 
 end

@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-contents {
   justify-content: space-around;
+  width: 50vw;
+  height: max-content;
   margin: 20px;
   padding: 10px;
   background-color: rgba($color: #ffffff, $alpha: 0.5);
