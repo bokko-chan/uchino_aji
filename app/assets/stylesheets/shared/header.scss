@@ -20,6 +20,14 @@ header {
   justify-content: flex-end;
 }
 
+.header-user-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  overflow: hidden;
+  background-color: rgba($color: #fffdf1, $alpha: 1.0);
+}
+
 ul{
   display: flex;
 }

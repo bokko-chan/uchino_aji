@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_182158) do
+ActiveRecord::Schema.define(version: 2020_12_12_081634) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,20 +35,21 @@ ActiveRecord::Schema.define(version: 2020_11_25_182158) do
 
   create_table "seasonings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "salt_sugar_id"
-    t.integer "soy_sauce_id"
-    t.integer "liquor_id"
-    t.integer "miso_id"
-    t.integer "dashi_id"
-    t.integer "oil_id"
-    t.integer "vinegar_id"
-    t.integer "sauce_id"
-    t.integer "western_id"
-    t.integer "chinese_id"
-    t.integer "spice_herb_id"
-    t.integer "roux_id"
-    t.integer "dressing_id"
-    t.integer "other_id"
+    t.text "salt"
+    t.text "sugar"
+    t.text "soy_sauce"
+    t.text "liquor"
+    t.text "miso"
+    t.text "dashi"
+    t.text "oil"
+    t.text "vinegar"
+    t.text "sauce"
+    t.text "western"
+    t.text "chinese"
+    t.text "spice_herb"
+    t.text "roux"
+    t.text "dressing"
+    t.text "various"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_seasonings_on_user_id"
