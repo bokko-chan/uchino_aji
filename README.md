@@ -72,9 +72,9 @@
 |:----------------|:---------|:------------|
 | id              | pk       |             |
 | name            | string   | null: false |
-| user_created_at | datetime | null: false |
-| created_at      | datetime | null: false |
-| updated_at      | datetime | null: false |
+| user_created_at | datetime |             |
+| created_at      | datetime |             |
+| updated_at      | datetime |             |
 
 ##### Association
 - has_many :users, through: :users_seasonings

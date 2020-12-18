@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_11_25_182158) do
-
+ActiveRecord::Schema.define(version: 2020_12_18_080401) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -36,25 +34,19 @@ ActiveRecord::Schema.define(version: 2020_11_25_182158) do
   end
 
   create_table "seasonings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.text "salt"
-    t.text "sugar"
-    t.text "soy_sauce"
-    t.text "liquor"
-    t.text "miso"
-    t.text "dashi"
-    t.text "oil"
-    t.text "vinegar"
-    t.text "sauce"
-    t.text "western"
-    t.text "chinese"
-    t.text "spice_herb"
-    t.text "roux"
-    t.text "dressing"
-    t.text "various"
+    t.string "name", null: false
+    t.datetime "user_crated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_seasonings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "seasoning_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_seasonings_on_user_id"
+    t.index ["seasoning_id"], name: "index_user_seasonings_on_seasoning_id"
+    t.index ["user_id"], name: "index_user_seasonings_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,5 +65,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_182158) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "seasonings", "users"
+  add_foreign_key "user_seasonings", "seasonings"
+  add_foreign_key "user_seasonings", "users"
 end
