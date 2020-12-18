@@ -1,0 +1,2 @@
+class UserSeasoning < ApplicationRecord
+end

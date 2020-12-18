@@ -56,6 +56,7 @@
 #### users
 | Column             | Type       | Options     |
 |:-------------------|:-----------|:------------|
+| id                 | pk         |             |
 | nickname           | string     | null: false |
 | email              | string     | null: false |
 | encrypted_password | string     | null: false |
@@ -63,29 +64,32 @@
 | profile            | text       |             |
 
 ##### Association
-- has_one :seasoning
+- has_many :seasonings, through: :users_seasonings
+- has_many :users_seasonings
 
 #### seasonings
-| Column        | Type       | Options                        |
-|:--------------|:-----------|:-------------------------------|
-| user_id       | references | null: false, foreign_key: true |
-| salt_sugar_id | integer    |                                |
-| soy_sauce_id  | integer    |                                |
-| liquor_id     | integer    |                                |
-| miso_id       | integer    |                                |
-| dashi_id      | integer    |                                |
-| oil_id        | integer    |                                |
-| vinegar_id    | integer    |                                |
-| sauce_id      | integer    |                                |
-| western_id    | integer    |                                |
-| chinese_id    | integer    |                                |
-| spice_herb_id | integer    |                                |
-| roux_id       | integer    |                                |
-| dressing_id   | integer    |                                |
-| other_id      | integer    |                                |
+| Column          | Type     | Options     |
+|:----------------|:---------|:------------|
+| id              | pk       |             |
+| name            | string   | null: false |
+| user_created_at | datetime |             |
+| created_at      | datetime |             |
+| updated_at      | datetime |             |
 
 ##### Association
-- belongs_to :users
+- has_many :users, through: :users_seasonings
+- has_many :users_seasonings
+
+#### users_seasonings
+| Column       | Type   | Options     |
+|:-------------|:-------|:------------|
+| id           | pd     |             |
+| user_id      | bigint | null: false |
+| seasoning_id | bigint | null: false |
+
+##### Association
+- belongs_to :user
+- belongs_to :seasoning
 
 ## ローカルでの動作方法
 - git clone https://github.com/bokko-chan/uchino_aji.git
