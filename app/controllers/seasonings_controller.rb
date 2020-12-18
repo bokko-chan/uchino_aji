@@ -21,8 +21,8 @@ class SeasoningsController < ApplicationController
 
   private
   
-  # def seasoning_params
-  #   params.require(:seasoning).permit(:salt_sugar_id,:soy_sauce_id, :liquor_id, :miso_id, :dashi_id, :oil_id, :vinegar_id, :sauce_id, :western_id, :chinese_id, :spice_herb_id, :roux_id, :dressing_id, :other_id).merge(user_id: current_user.id)
-  # end
+  def seasoning_params
+    params.require(:seasoning).permit(:name, :user_created_at, :created_at, :updated_at).merge(user_id: current_user.id)
+  end
 
 end
