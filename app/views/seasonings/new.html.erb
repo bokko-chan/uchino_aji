@@ -12,12 +12,20 @@
           <div class="form">
             <span class='optional'>(任意)</span>
           </div>
+          <%= f.label :name, "基本の調味料" %>
+          <%= f.collection_check_boxes(:seasoning_ids, Seasoning.all, :id, :name) do |seasoning| %>
+            <%= seasoning.label do %>
+              <%= seasoning.check_box %>
+            <% end %>
+          <% end %><br/>
 
+          <%= f.label :name, "調味料項目を追加する" %><br/>
+          <%= f.text_field :name, class: 'serch-form' %>
+          
           <div class="actions">
             <%= f.submit "登録", class: 'recipe-detail-btn' %>
           </div>
         <% end %>
-
       </div>
     </div>
   </div>
