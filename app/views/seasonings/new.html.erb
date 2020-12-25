@@ -7,25 +7,30 @@
         <h3><%= link_to "uchino_aji", "/", class: 'main-subtitle' %></h3><br />
         <h2>うちの調味料登録</h2>
 
-        <%= form_with model: @seasoning, url: seasonings_path, method: :post, local: true do |f| %>
+        <%= form_with model: @seasoning, url: seasonings_path(@user), method: :post, local: true do |f| %>
           
           <div class="form">
             <span class='optional'>(任意)</span>
           </div>
-          <%= f.label :name, "基本の調味料" %>
-          <%= f.collection_check_boxes(:seasoning_ids, Seasoning.all, :id, :name) do |seasoning| %>
-            <%= seasoning.label do %>
-              <%= seasoning.check_box %>
-            <% end %>
-          <% end %><br/>
-
-          <%= f.label :name, "調味料項目を追加する" %><br/>
-          <%= f.text_field :name, class: 'serch-form' %>
-          
+          <%= f.fields_for :user_seasonings do |fus| %>
+            <%= fus.label :name, "基本の調味料" %>
+            <%= fus.collection_check_boxes(:seasoning_ids, Seasoning.all, :id, :name) %>
+            <%= fus.label :name, "調味料項目を追加する" %><br/>
+            <%= fus.text_field :name, class: 'serch-form' %>
+          <% end %>
           <div class="actions">
+            <%# binding.pry %>
             <%= f.submit "登録", class: 'recipe-detail-btn' %>
           </div>
         <% end %>
+
+          <%#= f.collection_check_boxes(:name, Seasoning.all, :id, :name) %>
+          <%# <%= f.collection_check_boxes(:seasoning_ids, Seasoning.all, :id, :name) do |seasoning| %>
+            <%# <%= seasoning.label do %>
+              <%# <div><%= seasoning.check_box %>
+            <%# <% end %> 
+          <%# <% end %>
+
       </div>
     </div>
   </div>
