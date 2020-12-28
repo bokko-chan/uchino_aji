@@ -6,7 +6,7 @@ class User < ApplicationRecord
   
   has_one_attached :image
 
-  # has_many :user_seasonings, foreign_key: 'seasoning_id'
+  # has_many :user_seasonings, foreign_key: "seasoning_id"
   # has_many :seasonings, through: :user_seasonings
 
   # accepts_nested_attributes_for :user_seasonings, allow_destroy: true
