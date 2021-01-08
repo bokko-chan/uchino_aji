@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_123817) do
+ActiveRecord::Schema.define(version: 2021_01_08_011227) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_123817) do
 
   create_table "seasonings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "user_crated_at"
+    t.datetime "user_created_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
