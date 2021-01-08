@@ -7,8 +7,8 @@
         <h3><%= link_to "uchino_aji", "/", class: 'main-subtitle' %></h3><br />
         <h2>うちの調味料登録</h2>
 
-        <%= form_with model: @seasoning, url: seasonings_path, method: :post, local: true do |f| %>          
-        <%#= form_with model: @seasoning, url: user_seasonings_path, method: :post, local: true do |f| %>          
+        <%= form_with model: @seasoning, url: seasonings_path(@user), method: :post, local: true do |f| %>          
+        <%#= form_with model: @seasoning, url: user_seasonings_path(@user), method: :post, local: true do |f| %>          
           <div class="form">
             <span class='optional'>(任意)</span>
           </div>

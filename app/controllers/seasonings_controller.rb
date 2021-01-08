@@ -7,6 +7,7 @@ class SeasoningsController < ApplicationController
 
   def new
     @seasoning = Seasoning.new
+    @user = User.find(current_user.id) 
     # @user_seasoning = @seasoning.user_seasonings.build
     # @user = current_user
     # @seasoning = Seasoning.find(params[:seasoning_id])
@@ -15,7 +16,19 @@ class SeasoningsController < ApplicationController
 
   def create
     # binding.pry
-    @seasoning = Seasoning.new(seasoning_params)
+    @user_seasonings = [] 
+    if seasoning_params[:seasonings][:name].present?
+      s = Seasoning.create(name: seasoning_params[:seasonings][:name])
+    
+      @user_seasonings << UserSeasoning.new(seasoning_id: s.id, user_id: seasoning_params[:user_id])
+    
+    end
+    
+    seasoning_params[:seasonings][:seasoning_ids].each do |sid|
+    @user_seasonings << UserSeasoning.new(seasoning_id: sid, user_id: seasoning_params[:user_id])
+    end
+    
+    # @seasoning = Seasoning.create(seasoning_params)
     # @seasoning.user_id = current_user.id
     # @seasoning = Seasoning.find(params[:seasoning_id])
     # @user_seasoning = UserSeasoning.new(seasoning_params)
@@ -29,8 +42,10 @@ class SeasoningsController < ApplicationController
     # @user = User.find(params[:user_id])
     # @seasoning = @user.seasonings.create(seasoning_params)
     # @seasoning = @user_seasoning.create(seasoning_params)
-    if @seasoning.save
-      # binding.pry
+    if @user_seasonings.map(&:valid?).all?      
+      @user_seasonings.each do |us|
+        us.save
+      end
       redirect_to action: :index
     else
       render :new
