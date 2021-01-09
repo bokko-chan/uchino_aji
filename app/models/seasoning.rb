@@ -1,10 +1,7 @@
 class Seasoning < ApplicationRecord
-  has_and_belongs_to_many :users,
-    foreign_key: "user_id",
-    dependent: :destroy
-  
   # has_many :user_seasonings, foreign_key: "user_id", dependent: :destroy
   # has_many :users, through: :user_seasonings
+
   # accepts_nested_attributes_for :user_seasonings, allow_destroy: true
 
 

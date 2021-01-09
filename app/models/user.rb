@@ -5,9 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one_attached :image
-  has_and_belongs_to_many :seasonings,
-    foreign_key: "seasoning_id"
-  
+
   # has_many :user_seasonings, foreign_key: "seasoning_id"
   # has_many :seasonings, through: :user_seasonings
 
