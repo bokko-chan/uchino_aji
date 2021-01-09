@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   # end
 
   # resources :users, only:[:show]
-  resources :seasonings, only:[:index, :new, :create] do
-    member do
-      get :users
-    end
-  end
+  # resources :seasonings, only:[:index, :new, :create] do
+  #   member do
+  #     get :users
+  #   end
+  # end
 
   # resources :users do
   #   resources :seasonings
@@ -24,5 +24,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  # resources :users, only:[:show]
+  resources :seasonings, only:[:index, :new, :create]
+  resources :users, only:[:show]
+  
 end
