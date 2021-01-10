@@ -7,16 +7,16 @@
         <h3><%= link_to "uchino_aji", "/", class: 'main-subtitle' %></h3><br />
         <h2>うちの調味料登録</h2>
 
-        <%= form_with model: @seasoning, url: seasonings_path(@user), method: :post, local: true do |f| %>
-          
+        <%= form_with model: @seasoning, url: seasonings_path(@user), method: :post, local: true do |f| %>          
+        <%#= form_with model: @seasoning, url: user_seasonings_path(@user), method: :post, local: true do |f| %>          
           <div class="form">
             <span class='optional'>(任意)</span>
           </div>
-          <%= f.fields_for :user_seasonings do |fus| %>
-            <%= fus.label :name, "基本の調味料" %>
-            <%= fus.collection_check_boxes(:seasoning_ids, Seasoning.all, :id, :name) %>
-            <%= fus.label :name, "調味料項目を追加する" %><br/>
-            <%= fus.text_field :name, class: 'serch-form' %>
+          <%= f.fields_for :seasonings do |fs| %>
+            <%= fs.label :name, "基本の調味料" %>
+            <%= fs.collection_check_boxes(:seasoning_ids, Seasoning.all, :id, :name) %><br/>
+            <%= fs.label :name, "調味料項目を追加する" %>
+            <%= fs.text_field :name, class: 'serch-form' %>
           <% end %>
           <div class="actions">
             <%# binding.pry %>

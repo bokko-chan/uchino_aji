@@ -9,7 +9,7 @@
       <%= form_with url:rakuten_search_path, method: :get, local: true do |f| %>
         <%= label_tag :recipe_category, 'キーワード検索', class: 'search-label'%>
         <%= f.text_field :recipe_category, class: 'serch-form', placeholder: "料理名や材料名を入力" %>
-        <%= submit_tag "検索", class: 'recipe-detail-btn'%>
+        <%= f.submit "検索", class: 'recipe-detail-btn'%>
       <% end %>
 
       <h3 class='lists-title'>ランキング１位 獲得の人気レシピ</h3>
