@@ -11,7 +11,7 @@ class SeasoningsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     # @user_seasonings = UserSeasoning.new
     # seasoning = Seasoning.create(seasoning_params)
     # @seasoning = @user_seasonings.build_seasoning(seasoning_params)
@@ -24,8 +24,14 @@ class SeasoningsController < ApplicationController
     
     # user_seasonings = UserSeasoning.new
     # @seasoning = Seasonig.new
-    @seasoning = Seasonig.find_or_created_by(seasoning_params)
-    @user_seasonings = @seasoning.user_seasonings.build({user_id: current_user.id}, {seasoning_id: @seasoning.id})
+    # @seasoning = Seasonig.find_or_created_by(seasoning_params)
+    @seasoning = Seasoning.find_or_create_by(name: seasoning_params[:seasonings][:name])
+    @user_seasonings = @seasoning.user_seasonings.build({user_id: current_user.id}, {seasoning_id: params[:seasoning_ids]})
+    @user_seasonings = user_seasonings.build({user_id: current_user.id}, {seasoning_id: params[:seasoning_ids]})
+    @user_seasonings = user_seasonings.build({user_id: current_user.id}, {seasoning_ids: params[:seasoning_ids]})
+    @user_seasonings = user_seasonings.build({user_id: current_user.id}, {seasoning_id: @seasoning.id})
+    # @user_seasonings = user_seasonings.build({user_id: current_user.id}, {seasoning_id: params[:seasoning_ids]}) << @seasoning
+    # @user_seasonings = @seasoning.user_seasonings.build({user_id: current_user.id}, {seasoning_id: @seasoning[:seasoning_ids]})
     # @user_seasonings = UserSeasoning.build({user_id: current_user.id}, {seasoning_id: @seasoning.id})
     
     if @user_seasonings.save
@@ -35,12 +41,9 @@ class SeasoningsController < ApplicationController
     end
   end
 
-
-
-
   #   @user_seasonings = [] 
   #   if seasoning_params[:seasonings][:name].present?
-  #     s = Seasoning.find_or_created_by(name: seasoning_params[:seasonings][:name])
+  #     s = Seasoning.find_or_create_by(name: seasoning_params[:seasonings][:name])
   #     @user_seasonings << UserSeasoning.new(seasoning_id: s.id, user_id: seasoning_params[:user_id])
   #   end
     
