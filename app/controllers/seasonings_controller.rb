@@ -3,6 +3,14 @@ class SeasoningsController < ApplicationController
   def index
       @categories = RakutenWebService::Recipe.large_categories
       @recipes = @categories.first.ranking
+
+      if params[:search].present?
+        # UserSeasoning.recipe_search(params[:search]).all
+        UserSeasoning.recipe_search(params[:recipe_category]).all
+        # redirect_to action: :検索結果画面
+      # else
+      #   render :index 検索失敗時
+      end
   end
 
   def new
