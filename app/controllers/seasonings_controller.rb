@@ -10,21 +10,6 @@ class SeasoningsController < ApplicationController
   end
 
   def create
-    # @user = User.new
-    # @user = current_user
-    # @seasoning = Seasoning.new
-    # @user.seasonings << @seasoning
-
-    # @seasoning = Seasoning.new(seasoning_params)
-    # @seasoning = Seasoning.new(seasoning_id: seasoning_params[:seasonings][:seasoning_ids])
-    # @user.seasonings.ids << @seasoning
-
-
-    # @user.seasonings.ids
-    # @seasonings << Seasoning.new
-    # @seasoning = Seasoning.new(seasoning_params)
-    # @seasoning = Seasoning.new(seasoning_params[user_id:current_user.id])
-
     @user = current_user
     if seasoning_params[:seasonings][:name].present?
       @seasoning = Seasoning.find_or_create_by(name: seasoning_params[:seasonings][:name])
@@ -32,16 +17,22 @@ class SeasoningsController < ApplicationController
     else
     end
 
-    seasonings_ary = seasoning_params[:seasonings][:seasoning_ids].compact
+    seasonings_ary = seasoning_params[:seasonings][:seasoning_ids].compact   #nullに対するmysplエラー対応の際,nillを取り除くcompactメソッドを使用してみたもの。今回の処理には不要なもの
     seasonings_ary.each do |sid|
-    # seasoning_params[:seasonings][:seasoning_ids].each do |sid|
-      @seasoning = Seasoning.new(id: sid)
-      # binding.pry
-      @user.seasonings << @seasoning
+    # seasoning_params[:seasonings][:seasoning_ids].each do |sid|...compactメソッドを使用する前の記述
+      @seasoning = Seasoning.find_by(id: sid)
+      if @seasoning.present? && @user.seasonings.find_by(id: sid).nil?   #sidはnewで新しく生成するのではなく既存登録から選択するデータのため、選択された調味料はあるか・すでにユーザー調味料として登録済みではないかを確認してから保存させる。
+        @user.seasonings << @seasoning
+      end
+      # @seasoning = Seasoning.new(name: sid)・・・newした時点ではsidは空の状態のためnameに対してnullはだめというmysqlエラーになっていた
+      # @user.seasonings << @seasoning
     end
 
-    # binding.pry
-    if @user.seasonings.save
+    # if @user.seasonings.save ・・・配列データに対してはsaveメソッドは無いためエラーになる
+    if @user.seasonings.map(&:valid?).all?       #mapメソッドは処理の実行結果を配列に入れて返してくれる(valid?で真偽検証)
+      @user.seasonings.each do |us|
+        us.save
+      end
       redirect_to action: :index
     else
       render :new
